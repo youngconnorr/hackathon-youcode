@@ -59,8 +59,8 @@ const MentalPage = (curStreak) => {
 
             <div>
                 {(num === 5) ?
-                    <div>
-                        <button onClick={plusCurStreak}>Add to your streak!</button>
+                    <div className="question-container">
+                        <button className="addStreak" onClick={plusCurStreak}>Add to your streak!</button>
                         <button onClick={increment}>Submit answer!</button>
                     </div>
 

@@ -5,22 +5,6 @@ import React, { useState } from 'react';
 import 'firebase/compat/firestore';
 // import { useCollectionData } from 'react-firebase-hooks/firestore'
 
-
-
-
-
-
-
-
-// const firestore = firebase.firestore();
-
-
-
-
-
-
-
-
 const MixPage = (curStreak) => {
 
     const [num, setNum] = useState(2);
@@ -90,8 +74,8 @@ const MixPage = (curStreak) => {
 
             <div>
                 {(num === 5) ?
-                    <div>
-                        <button className="" onClick={plusCurStreak}>Add to your streak!</button>
+                    <div className="question-container">
+                        <button className="addStreak" onClick={plusCurStreak}>Add to your streak!</button>
                         <button onClick={increment}>Submit answer!</button>
                     </div>
                     :

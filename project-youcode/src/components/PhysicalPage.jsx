@@ -1,24 +1,9 @@
-// import React from 'react'
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
-// import './SurveyPage.css'
 import 'firebase/compat/firestore';
-// import { useCollectionData } from 'react-firebase-hooks/firestore'
 import SurveyImage3 from '../assets/survey-page-3-youcode.png';
 import SurveyImage2 from '../assets/survey-page-2-youcode.png';
 import SurveyImage from '../assets/survey-page-1-youcode.png';
-
-
-
-
-// const firestore = firebase.firestore();
-
-
-
-
-
-
-
 
 const PhysicalPage = (curStreak) => {
 
@@ -91,9 +76,9 @@ const PhysicalPage = (curStreak) => {
 
             <div>
                 {(num === 5) ?
-                    <div>
-                        <button className="" onClick={plusCurStreak}>Add to your streak!</button>
-                        <button onClick={increment}>Submit answer!</button>
+                    <div className="question-container">
+                        <button className="addStreak" onClick={plusCurStreak}>Add to your streak</button>
+                        <button onClick={increment}>Submit answer</button>
                     </div>
                     :
                     null

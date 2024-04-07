@@ -4,6 +4,8 @@ import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
 import SurveyPage from './components/SurveyPage';
 import HomePhoto from './assets/intro-page-youcode.png'
+import Arcteryx from './assets/arcteryx.png';
+import Logo from './assets/youcode-logo.png';
 import './App'
 // Import the functions you need from the SDKs you need
 import { useAuthState } from 'react-firebase-hooks/auth'
@@ -31,10 +33,6 @@ function SignIn() {
   return auth.signInWithPopup(googleProvider);
 }
 
-
-
-
-
 function App() {
   const [user] = useAuthState(auth);
   const [streak, setStreak] = useState(0);
@@ -46,12 +44,12 @@ function App() {
         .catch(error => console.error('Error signing out:', error));
 
     };
-    
+
     return (
       <button className="signOutButton" onClick={signOutUser}>Sign Out</button>
     );
   }
-  
+
   function plusStreak() {
     setStreak(streak + 1)
   }
@@ -61,6 +59,11 @@ function App() {
       {user ? (
         <>
           <div className="">
+            <div className="logo-container">
+              <img src={Arcteryx} alt="" className="arcteryx" />
+              <p className="x">x</p>
+              <img src={Logo} alt="" className="logo" />
+            </div>
             <SignOut />
           </div>
           <SurveyPage plusStreak={plusStreak} />
@@ -68,6 +71,11 @@ function App() {
         </>
       ) : (
         <div>
+          <div className="logo-container">
+            <img src={Arcteryx} alt="" className="arcteryx" />
+            <p className="x">x</p>
+            <img src={Logo} alt="" className="logo" />
+          </div>
           <div className="card">
             <h2>
               welcome to

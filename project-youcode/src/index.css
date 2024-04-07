@@ -29,18 +29,21 @@ body {
 
 h1 {
   font-family: Alata;
-  font-size: 3.2em;
+  font-size: 4.6em;
   line-height: 0;
 }
 
 
 h2 {
   line-height: 0;
+  font-weight: normal;
 }
 
 
 h3 {
   line-height: 1;
+  font-size: 1em;
+  font-weight: normal;
 }
 
 
@@ -60,6 +63,17 @@ h3 {
   right: 0; /* Position at the left of the viewport */
   z-index: -1; /* Move the image behind other content */
 }
+
+.addSteak {
+  transition: all 5s;
+}
+
+.addStreak:hover {
+  background-color:red !important;
+  transition: background-color 4s !important;
+
+}
+
 
 button {
   border-radius: 8px;
@@ -134,7 +148,9 @@ button:focus-visible {
 
 
 .inspiringCaption {
+  line-height: 30px;
   padding-left: 30px;
+  font-size: 3em;
 }
 
 
@@ -143,6 +159,7 @@ button:focus-visible {
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 20px;
+  margin-left: 15px;
 }
 
 
@@ -151,6 +168,37 @@ button:focus-visible {
 }
 
 
+/* .logo-container {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  padding-right: 2em;
+} */
+
+.arcteryx {
+  width: 60px;
+  height: 40px;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  padding-right: 2em;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  top: 3px;
+  left: 100px;
+  padding-right: 2em;
+}
+
+.x {
+  position: fixed;
+  top: 4px;
+  left: 80px;
+  padding-right: 2em;
+}
 
 
 .signOutButton{
