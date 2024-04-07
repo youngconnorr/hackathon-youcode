@@ -14,7 +14,7 @@ if (apps.length === 0) {
 export const chatCompletion = https.onCall(async (data) => {
 
     const { prompt } = data;
-    const OPENAI_API_KEY = import.meta.env.VITE_REACT_APP_OPENAI_API_KEY;
+    const OPENAI_API_KEY = import.meta.env.REACT_APP_OPENAI_API_KEY;
     const openai = new OpenAI({apiKey: OPENAI_API_KEY});
     const aiModel = "gpt-3.5-turbo-1106";
 
