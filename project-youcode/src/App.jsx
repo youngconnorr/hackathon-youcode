@@ -1,7 +1,7 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
-// import SurveyPage from './components/HomePage';
+import SurveyPage from './components/SurveyPage';
 // import HomePage from './components/SurveyPage';
 // Import the functions you need from the SDKs you need
 import { useAuthState } from 'react-firebase-hooks/auth'
@@ -52,10 +52,15 @@ function App() {
   return (
     <div className="app">
       <div className="navbar">
-        {user ? <h1>Hi</h1> : <h1>be</h1>}
+        {user ? null : <h1>be</h1>}
       </div>
       {user ?
+      <span>
+      <div className="navbar">
         <SignOut />
+      </div>
+      <SurveyPage />
+      </span>
         :
         <div className="accountButtons">
           <button onClick={SignIn}>Sign up</button>
