@@ -4,7 +4,6 @@ import 'firebase/compat/auth';
 import SurveyPage from './components/SurveyPage';
 import HomePhoto from './assets/intro-page-youcode.png'
 import './App'
-// import HomePage from './components/SurveyPage';
 // Import the functions you need from the SDKs you need
 import { useAuthState } from 'react-firebase-hooks/auth'
 
