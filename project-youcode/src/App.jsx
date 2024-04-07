@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
@@ -22,32 +23,38 @@ firebase.initializeApp({
   measurementId: "G-SJETSQW1W3"
 });
 
-// Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
 const auth = firebase.auth();
+
 
 function SignIn() {
   const googleProvider = new firebase.auth.GoogleAuthProvider();
   return auth.signInWithPopup(googleProvider);
 }
 
-function SignOut() {
-  const signOutUser = () => {
-    firebase.auth().signOut()
-      .then(() => console.log('User signed out successfully'))
-      .catch(error => console.error('Error signing out:', error));
-  };
 
-  return (
-    <button onClick={signOutUser}>Sign Out</button>
-  );
-}
 
 
 
 function App() {
   const [user] = useAuthState(auth);
+  const [streak, setStreak] = useState(0);
+
+  function SignOut() {
+    const signOutUser = () => {
+      firebase.auth().signOut()
+        .then(() => console.log('User signed out successfully'))
+        .catch(error => console.error('Error signing out:', error));
+
+    };
+    
+    return (
+      <button className="signOutButton" onClick={signOutUser}>Sign Out</button>
+    );
+  }
+  
+  function plusStreak() {
+    setStreak(streak + 1)
+  }
 
   return (
     <div className="app">
@@ -56,7 +63,8 @@ function App() {
           <div className="">
             <SignOut />
           </div>
-          <SurveyPage />
+          <SurveyPage plusStreak={plusStreak} />
+          <p className="streakNumber">🔥{streak}</p>
         </>
       ) : (
         <div>
@@ -71,9 +79,9 @@ function App() {
               thanks for taking the time for yourself today
             </h3>
             <div >
-              <button onClick={SignIn}>Log in</button>
+              <button className="login" onClick={SignIn}>Log in</button>
             </div>
-          <img src={HomePhoto} alt="" className="homePhoto" />
+            <img src={HomePhoto} alt="" className="homePhoto" />
           </div>
         </div>
       )}

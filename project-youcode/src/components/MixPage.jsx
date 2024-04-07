@@ -6,82 +6,101 @@ import 'firebase/compat/firestore';
 // import { useCollectionData } from 'react-firebase-hooks/firestore'
 
 
+
+
+
+
+
+
 // const firestore = firebase.firestore();
 
 
-const MixPage = () => {
 
 
-const [num, setNum] = useState(2);
 
 
-function increment(){
-    setNum(num + 1)
-}
- 
+
+
+const MixPage = (curStreak) => {
+
+    const [num, setNum] = useState(2);
+
+    const plusCurStreak = () => {
+        curStreak.incrementCurStreak()
+    }
+
+    function increment() {
+        setNum(num + 1)
+    }
+
     return (
         <div>
-            <h1>Lets get breathing and moving</h1>
-            <div className="Question_2">
-                {(num == 2) ?
-                <div><h2>Question 2</h2><div/>
-                <p>What is your excercise goal for today?</p>
-                <div>
-                    <button onClick={increment}>Just getting moving</button>
-                    <button onClick={increment}>Losing weight</button>
-                    <button onClick={increment}>Toning abs</button>
-                    <button onClick={increment}>Building upper body muscle</button>
-                    <button onClick={increment}>Building lower body muscle</button>
-                    <button onClick={increment}>Flexibility</button>
-
-
-                </div>
-            </div>
-            :
-            null
-             }
-               
-            </div>
-           
-            <div className="Question_3">
-                {(num == 3) ?
-                <div>
-                    <h2>Question 3</h2>
-                    <p>How much time are you able to devote to your progress today?</p>
-                    <div>
-                        <button onClick={increment}>5 minutes</button>
-                        <button onClick={increment}>10 minutes</button>
-                        <button onClick={increment}>15 minutes</button>
-                        <button onClick={increment}>20 minutes</button>
-                        <button onClick={increment}>30 minutes</button>
-                        <button onClick={increment}>40 minutes</button>
+            <h1 className="inspiringCaption">lets get breathing and moving</h1>
+            <div className="question-card">
+                {(num === 2) ?
+                    <div><h2>question 2</h2><div />
+                        <p>What is your excercise goal for today?</p>
+                        <div className="question-container">
+                            <button onClick={increment}>just getting moving</button>
+                            <button onClick={increment}>losing weight</button>
+                            <button onClick={increment}>toning abs</button>
+                            <button onClick={increment}>building upper body muscle</button>
+                            <button onClick={increment}>building lower body muscle</button>
+                            <button onClick={increment}>flexibility</button>
+                        </div>
                     </div>
-                </div>
-                : null}
+                    :
+                    null
+                }
+
             </div>
-           
-            <div className="Question_4">
-                {(num == 4) ?
-                <div>
-                    <h2>Question 4</h2>
-                    <p>How intense would you like your excercise to be today?</p>
+
+            <div className="question-card">
+                {(num === 3) ?
                     <div>
-                        <button onClick={increment}>Easy</button>
-                        <button onClick={increment}>Medium</button>
-                        <button onClick={increment}>Hard</button>
+                        <h2>question 3</h2>
+                        <p>how much time are you able to devote to your progress today?</p>
+                        <div>
+                            <button onClick={increment}>5 minutes</button>
+                            <button onClick={increment}>10 minutes</button>
+                            <button onClick={increment}>15 minutes</button>
+                            <button onClick={increment}>20 minutes</button>
+                            <button onClick={increment}>30 minutes</button>
+                            <button onClick={increment}>40 minutes</button>
+                        </div>
                     </div>
-                </div>
-               
-                : null}
+                    : null}
+            </div>
+
+            <div className="question-card">
+                {(num === 4) ?
+                    <div>
+                        <h2>question 4</h2>
+                        <p>How intense would you like your excercise to be today?</p>
+                        <div>
+                            <button onClick={increment}>easy</button>
+                            <button onClick={increment}>medium</button>
+                            <button onClick={increment}>hard</button>
+                        </div>
+                    </div>
+
+                    : null}
             </div>
 
 
             <div>
-                {(num == 5) ? <p>New Space</p> : null}
+                {(num === 5) ?
+                    <div>
+                        <button className="" onClick={plusCurStreak}>Add to your streak!</button>
+                        <button onClick={increment}>Submit answer!</button>
+                    </div>
+                    :
+                    null
+                }
             </div>
         </div>
     )
-  }
- 
- 
-  export default MixPage
+}
+
+
+export default MixPage
