@@ -4,6 +4,7 @@ import 'firebase/compat/firestore';
 import SurveyImage3 from '../assets/survey-page-3-youcode.png';
 import SurveyImage2 from '../assets/survey-page-2-youcode.png';
 import SurveyImage from '../assets/survey-page-1-youcode.png';
+import ArctJacket from '../assets/Arcteryx-jacket.avif';
 
 const PhysicalPage = (curStreak) => {
 
@@ -17,6 +18,18 @@ const PhysicalPage = (curStreak) => {
     function increment() {
         setNum(num + 1)
     }
+
+    function ArcteryxButton() {
+        const redirect = () => {
+            window.open("https://arcteryx.com/ca/en/shop/mens/gamma-mx-hoody", "_blank", "noopener,noreferrer");
+        };
+
+
+        return (
+            <button className="ark-btn" onClick={redirect}>Arc'teryx Store</button>
+        )
+    }
+
 
     return (
         <div>
@@ -79,6 +92,31 @@ const PhysicalPage = (curStreak) => {
                     <div className="question-container">
                         <button className="addStreak" onClick={plusCurStreak}>Add to your streak</button>
                         <button onClick={increment}>Submit answer</button>
+                    </div>
+                    :
+                    null
+                }
+            </div>
+
+            <div>
+                {(num === 6) ?
+                    <div className="excercise-container">
+                        <div className="excercise">
+                            <h2>go grab your earbuds and enjoy dancing in the rain!
+                                </h2>
+
+                                
+                        </div>
+                        <div className="arctplug">
+                            <h2>don't forget to wear a waterproof jacket! </h2>
+                            <div>
+                                <p>We highly recommend the GAMMA MX HOODY from  Arc'teryx:</p>
+
+                                <ArcteryxButton />
+                            </div>
+                        </div>
+                        <img className="arc-image" src={ArctJacket} alt="" />
+
                     </div>
                     :
                     null

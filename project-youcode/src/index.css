@@ -71,7 +71,12 @@ h3 {
 .addStreak:hover {
   background-color:red !important;
   transition: background-color 4s !important;
+}
 
+.ark-btn:hover {
+  background-color: black; 
+  transition: background-color 0.75s;
+  color: white;
 }
 
 
@@ -148,7 +153,8 @@ button:focus-visible {
 
 
 .inspiringCaption {
-  line-height: 30px;
+  margin-top: 80px;
+  line-height: 10px;
   padding-left: 30px;
   font-size: 3em;
 }
@@ -213,4 +219,33 @@ button:focus-visible {
   top: 2px;
   right: 135px;
   padding-right: 2em;
+}
+
+.excercise-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+.ark-btn {
+  margin-left: 130px;
+  margin-bottom: 10px;
+}
+
+
+.arc-image {
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Do not repeat the background image */
+  margin-top: 100px;
+  width: 425px; /* Set the width to fill the container */
+  height: 500px; /* Set the height to fill the container */
+  position: fixed; /* Position the image relative to the viewport */
+  top: 0; /* Position at the top of the viewport */
+  right: 130px; /* Position at the left of the viewport */
+  z-index: -1; /* Move the image behind other content */
 }
