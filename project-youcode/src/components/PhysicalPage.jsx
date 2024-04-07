@@ -26,7 +26,7 @@ const PhysicalPage = (curStreak) => {
 
 
         return (
-            <button className="ark-btn" onClick={redirect}>Arc'teryx Store</button>
+            <button className="ark-btn" onClick={redirect}>Arc`&apo`teryx Store</button>
         )
     }
 
@@ -108,9 +108,9 @@ const PhysicalPage = (curStreak) => {
                                 
                         </div>
                         <div className="arctplug">
-                            <h2>don't forget to wear a waterproof jacket! </h2>
+                            <h2>don `&apos` t forget to wear a waterproof jacket! </h2>
                             <div>
-                                <p>We highly recommend the GAMMA MX HOODY from  Arc'teryx:</p>
+                                <p>We highly recommend the GAMMA MX HOODY from  Arc`&apos`teryx:</p>
 
                                 <ArcteryxButton />
                             </div>
