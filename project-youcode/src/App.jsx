@@ -1,30 +1,69 @@
-import { useState } from 'react'
-import viteLogo from '/vite.svg'
-import './App.css'
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import 'firebase/compat/auth';
+// import SurveyPage from './components/HomePage';
+// import HomePage from './components/SurveyPage';
+// Import the functions you need from the SDKs you need
+import { useAuthState } from 'react-firebase-hooks/auth'
 
-function App() {
-  const [count, setCount] = useState(0)
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+firebase.initializeApp({
+  apiKey: "AIzaSyAK4FLdxvrfsk9fziOu-04rzgurP2I6N14",
+  authDomain: "youcode-hackathon.firebaseapp.com",
+  projectId: "youcode-hackathon",
+  storageBucket: "youcode-hackathon.appspot.com",
+  messagingSenderId: "34465283407",
+  appId: "1:34465283407:web:ec41c38e4ae4d5aea1193a",
+  measurementId: "G-SJETSQW1W3"
+});
+
+// Initialize Firebase
+// const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
+const auth = firebase.auth();
+
+function SignIn() {
+  const googleProvider = new firebase.auth.GoogleAuthProvider();
+  return auth.signInWithPopup(googleProvider);
+}
+
+function SignOut() {
+  const signOutUser = () => {
+    firebase.auth().signOut()
+      .then(() => console.log('User signed out successfully'))
+      .catch(error => console.error('Error signing out:', error));
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
+    <button onClick={signOutUser}>Sign Out</button>
+  );
+}
+
+
+
+function App() {
+
+  const [user] = useAuthState(auth);
+
+  return (
+    <div className="app">
+      <div className="navbar">
+        {user ? <h1>Hi</h1> : <h1>be</h1>}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      {user ?
+        <SignOut />
+        :
+        <div className="accountButtons">
+          <button onClick={SignIn}>Sign up</button>
+          <button onClick={SignIn}>Log in</button>
+        </div>
+      }
+      {/* {user ? <SurveyPage /> : <HomePage />} */}
+    </div>
   )
 }
 
