@@ -5,7 +5,7 @@ const ChatGpt = () => {
     const [prompt, setPrompt] = useState('')
     const [output, setOutput] = useState('')
     const [fetching, setFetching] = useState(false);
-
+//k
     const handleSubmit = async () => {
         const functions = getFunctions();
         const chatCompletion = httpsCallable(functions, 'chatCompletion')
