@@ -2,6 +2,8 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
 import SurveyPage from './components/SurveyPage';
+import HomePhoto from './assets/intro-page-youcode.png'
+import './App'
 // import HomePage from './components/SurveyPage';
 // Import the functions you need from the SDKs you need
 import { useAuthState } from 'react-firebase-hooks/auth'
@@ -46,30 +48,38 @@ function SignOut() {
 
 
 function App() {
-
   const [user] = useAuthState(auth);
 
   return (
     <div className="app">
-      <div className="navbar">
-        {user ? null : <h1>be</h1>}
-      </div>
-      {user ?
-      <span>
-      <div className="navbar">
-        <SignOut />
-      </div>
-      <SurveyPage />
-      </span>
-        :
-        <div className="accountButtons">
-          <button onClick={SignIn}>Sign up</button>
-          <button onClick={SignIn}>Log in</button>
+      {user ? (
+        <>
+          <div className="">
+            <SignOut />
+          </div>
+          <SurveyPage />
+        </>
+      ) : (
+        <div>
+          <div className="card">
+            <h2>
+              welcome to
+            </h2>
+            <h1>
+              mindfit
+            </h1>
+            <h3>
+              thanks for taking the time for yourself today
+            </h3>
+            <div >
+              <button onClick={SignIn}>Log in</button>
+            </div>
+          <img src={HomePhoto} alt="" className="homePhoto" />
+          </div>
         </div>
-      }
-      {/* {user ? <SurveyPage /> : <HomePage />} */}
+      )}
     </div>
-  )
+  );
 }
 
 export default App
