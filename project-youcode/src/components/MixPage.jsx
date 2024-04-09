@@ -3,6 +3,10 @@
 import React, { useState } from 'react';
 // import './SurveyPage.css'
 import 'firebase/compat/firestore';
+import SurveyImage3 from '../assets/survey-page-3-youcode.png';
+import SurveyImage2 from '../assets/survey-page-2-youcode.png';
+import SurveyImage from '../assets/survey-page-1-youcode.png';
+import ArctJacket from '../assets/Arcteryx-jacket.avif';
 // import { useCollectionData } from 'react-firebase-hooks/firestore'
 
 const MixPage = (curStreak) => {
@@ -15,6 +19,17 @@ const MixPage = (curStreak) => {
 
     function increment() {
         setNum(num + 1)
+    }
+
+    function ArcteryxButton() {
+        const redirect = () => {
+            window.open("https://arcteryx.com/ca/en/shop/mens/gamma-mx-hoody", "_blank", "noopener,noreferrer");
+        };
+
+
+        return (
+            <button className="ark-btn" onClick={redirect}>Arc`teryx Store</button>
+        )
     }
 
     return (
@@ -82,6 +97,41 @@ const MixPage = (curStreak) => {
                     null
                 }
             </div>
+
+            <div>
+                {(num === 6) ?
+                    <div className="excercise-container">
+                        <div className="excercise">
+                            <h2>go grab your earbuds and enjoy dancing in the rain!
+                                </h2>
+
+                                
+                        </div>
+                        <div className="arctplug">
+                            <h2>don`t forget to wear a waterproof jacket! </h2>
+                            <div>
+                                <p>We highly recommend the GAMMA MX HOODY from  Arc`teryx:</p>
+
+                                <ArcteryxButton />
+                            </div>
+                        </div>
+                        <img className="arc-image" src={ArctJacket} alt="" />
+
+                    </div>
+                    :
+                    null
+                }
+            </div>
+
+
+            <div className="Image-card">
+                {(num === 2) ? <img className="side-image" src={SurveyImage2} alt="" /> : null}
+                {(num === 3) ? <img className="side-image" src={SurveyImage3} alt="" /> : null}
+                {(num === 4) ? <img className="side-image" src={SurveyImage} alt="" /> : null}
+
+
+            </div>
+
         </div>
     )
 }

@@ -3,6 +3,10 @@
 import React, { useState } from 'react';
 // import './SurveyPage.css'
 import 'firebase/compat/firestore';
+import SurveyImage3 from '../assets/survey-page-3-youcode.png';
+import SurveyImage2 from '../assets/survey-page-2-youcode.png';
+import SurveyImage from '../assets/survey-page-1-youcode.png';
+import Meditation from '../assets/meditation.gif';
 // import { useCollectionData } from 'react-firebase-hooks/firestore'
 
 
@@ -58,7 +62,7 @@ const MentalPage = (curStreak) => {
             </div>
 
             <div>
-                {(num === 5) ?
+                {(num === 4) ?
                     <div className="question-container">
                         <button className="addStreak" onClick={plusCurStreak}>Add to your streak!</button>
                         <button onClick={increment}>Submit answer!</button>
@@ -68,6 +72,25 @@ const MentalPage = (curStreak) => {
 
                     null
                 }
+            </div>
+
+            
+            <div>
+                {(num === 5) ?
+                    <img src={Meditation} alt="" className="med-image"/>
+                    :
+                    null
+                }
+            </div>
+
+
+            <div className="Image-card">
+                {(num === 2) ? <img className="side-image" src={SurveyImage2} alt="" /> : null}
+                {(num === 3) ? <img className="side-image" src={SurveyImage3} alt="" /> : null}
+                {(num === 4) ? <img className="side-image" src={SurveyImage} alt="" /> : null}
+                {(num === 5) ? <img className="side-image" src={SurveyImage} alt="" /> : null}
+
+
             </div>
         </div>
     )
